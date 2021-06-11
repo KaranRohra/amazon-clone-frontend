@@ -1,10 +1,16 @@
-import './App.css';
-
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Checkout from "./Checkout";
 function App() {
   return (
-    <div className="App">
-      
-    </div>
+    <Router>
+      <div className="App">
+        <Switch>
+          <Route path="/checkout">
+            <Checkout />
+          </Route>
+        </Switch>
+      </div>
+    </Router>
   );
 }
 
