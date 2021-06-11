@@ -18,5 +18,4 @@ Move in the folder amazon-clone-frontend using following command:
 
 Install all the packages mentioned in requirements.txt file.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Open [https://github.com/KaranRohra/amazon-clone-frontend/blob/feature/1-readmechanges/requirements.txt](requirements.txt)
