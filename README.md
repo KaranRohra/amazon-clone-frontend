@@ -18,4 +18,4 @@ Move in the folder amazon-clone-frontend using following command:
 
 Install all the packages mentioned in requirements.txt file.
 
-Open [https://github.com/KaranRohra/amazon-clone-frontend/blob/feature/1-readmechanges/requirements.txt](requirements.txt)
+Open [requirements.txt](https://github.com/KaranRohra/amazon-clone-frontend/blob/feature/1-readmechanges/requirements.txt)
