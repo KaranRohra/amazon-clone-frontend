@@ -26,7 +26,7 @@ function CheckoutProduct() {
               <StarIcon />
             </p>
           </div>
-          <button onClick="{removeFromBasket}">Remove from Basket</button>
+          <button className ="remove" onClick="{removeFromBasket}">Remove from Basket</button>
         </div>
       </div>
     );
