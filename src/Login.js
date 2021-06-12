@@ -15,22 +15,20 @@ function Login() {
   const login = async (e) => {
     e.preventDefault();
     backendAPI.post("/accounts/login/", data).then((response) => {
-        console.log(response);
       if (response.data.status === 200) {
         history.replace("/");
-      } else if(response.data.status === 404) {
+      } else if (response.data.status === 404) {
         alert("Invaild creditianls");
       }
     });
   };
   const register = async (e) => {
     e.preventDefault();
-    
+
     backendAPI.post("/accounts/create/", data).then((response) => {
-      console.log(response);
       if (response.data.status === 201) {
         history.replace("/");
-      } else if(response.data.status === 400) {
+      } else if (response.data.status === 400) {
         alert("Account already exist");
       }
     });
