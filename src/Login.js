@@ -1,22 +1,40 @@
 import React from "react";
 import { Link, useHistory } from "react-router-dom";
 import "./Login.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import backendAPI from "./axios";
+import { useStateValue } from "./StateProvider";
+import { initialState } from "./reducer";
 
 function Login() {
   const history = useHistory();
-  const [email, setEmail] = useState("");
+  const [email, setEmail] = useState(null);
   const [password, setPassword] = useState("");
   const data = {
     email: email,
     password: password,
   };
+  // const [{}, dispatch] = useStateValue();
+
+  // useEffect(() => {
+  //   if (email) {
+  //     dispatch({
+  //       type: "SET_USER",
+  //       user: email,
+  //     });
+  //   } else {
+  //     dispatch({
+  //       type: "SET_USER",
+  //       user: null,
+  //     });
+  //   }
+  // },[email]);
   const login = async (e) => {
     e.preventDefault();
     backendAPI.post("/accounts/login/", data).then((response) => {
       if (response.data.status === 200) {
-
+        initialState.user = email;
+        console.log(response);
         history.replace("/");
       } else if (response.data.status === 404) {
         alert("Invaild creditianls");
@@ -28,6 +46,7 @@ function Login() {
 
     backendAPI.post("/accounts/create/", data).then((response) => {
       if (response.data.status === 201) {
+        initialState.user = email;
         history.replace("/");
       } else if (response.data.status === 400) {
         alert("Account already exist");
@@ -49,7 +68,7 @@ function Login() {
         <form action="">
           <h5>Email</h5>
           <input
-            type="text"
+            type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
@@ -67,7 +86,7 @@ function Login() {
             Sale. Please see our Privacy Notice, our Cookies Notice and our
             Interest-Based Ads Notice.
           </p>
-          <button className="login__registerButton" onClick={register}>
+          <button className="login__registerButton" onClick={register} type="submit">
             Create your Amazon Account
           </button>
         </form>
@@ -77,4 +96,3 @@ function Login() {
 }
 
 export default Login;
-

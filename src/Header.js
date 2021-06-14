@@ -1,11 +1,36 @@
-import React from "react";
+import React, { useEffect } from "react";
 import SearchIcon from "@material-ui/icons/Search";
 import ShoppingBasketIcon from "@material-ui/icons/ShoppingBasket";
-import { Link } from "react-router-dom";
-import './Header.css';
-
+import { Link, useHistory } from "react-router-dom";
+import "./Header.css";
+import { useStateValue } from "./StateProvider";
+import { initialState } from "./reducer";
+import backendAPI from "./axios";
 
 function Header() {
+  // const history = useHistory();
+  // const handleAuthentiation = () => {
+  //   if (initialState.user) {
+  //     backendAPI.get("/accounts/logout/").then((response) => {
+  //       console.log(response);
+  //       // initialState.user = null;
+  //       history.replace("/login");
+  //       console.log(initialState.user);
+  //     });
+  //   }
+  // };
+
+  // console.log(initialState.user);
+
+  // const url = "http://localhost:3000/";
+
+  useEffect(() => {
+    backendAPI.get("/accounts/get-email/").then((response) => {
+      initialState.user = response.data.email;
+      console.log(response);
+    });
+  });
+
   return (
     <div className="header">
       <Link to="/">
@@ -20,10 +45,14 @@ function Header() {
         <SearchIcon className="header__searchIcon" />
       </div>
       <div className="header__nav">
-        <Link to="/login">
+        <Link to={!initialState.user && "/login"}>
           <div className="header__option">
-            <span className="header__optionLineOne">Hello Guest</span>
-            <span className="header__optionLineTwo">Sign In</span>
+            <span className="header__optionLineOne">
+              {initialState.user ? "Hello " + initialState.user : "Hello Guest"}
+            </span>
+            <span className="header__optionLineTwo">
+              {initialState.user ? "Sign Out" : "Sign In"}
+            </span>
           </div>
         </Link>
 
@@ -38,8 +67,14 @@ function Header() {
         </div>
         <Link to="/checkout">
           <div className="header__optionBasket">
-            <ShoppingBasketIcon />
-            <span className="header__optionLineTwo header__basketCount">0</span>
+            {initialState.user ? <ShoppingBasketIcon /> : ""}
+            {initialState.user ? (
+              <span className="header__optionLineTwo header__basketCount">
+                0
+              </span>
+            ) : (
+              ""
+            )}
           </div>
         </Link>
       </div>
