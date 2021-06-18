@@ -1,58 +1,34 @@
 import React from "react";
 import { Link, useHistory } from "react-router-dom";
-import "./Login.css";
-import { useState, useEffect } from "react";
-import backendAPI from "./axios";
-import { useStateValue } from "./StateProvider";
-import { initialState } from "./reducer";
+import "Styles/Login.css";
+import { useState } from "react";
+import { useCookies } from "react-cookie";
+import  login from "Accounts/helper/LoginAPI";
+import register from "Accounts/helper/RegisterAPI";
+
 
 function Login() {
   const history = useHistory();
   const [email, setEmail] = useState(null);
   const [password, setPassword] = useState("");
+  const [cookies, setCookies, removeCookies] = useCookies("");
+  
   const data = {
     email: email,
     password: password,
   };
-  // const [{}, dispatch] = useStateValue();
+  const loginData = {
+    username: email,
+    password: password,
+  };
 
   // useEffect(() => {
-  //   if (email) {
-  //     dispatch({
-  //       type: "SET_USER",
-  //       user: email,
-  //     });
-  //   } else {
-  //     dispatch({
-  //       type: "SET_USER",
-  //       user: null,
-  //     });
+  //   if(cookies.token){
+  //     history.replace("/");
   //   }
-  // },[email]);
-  const login = async (e) => {
-    e.preventDefault();
-    backendAPI.post("/accounts/login/", data).then((response) => {
-      if (response.data.status === 200) {
-        initialState.user = email;
-        console.log(response);
-        history.replace("/");
-      } else if (response.data.status === 404) {
-        alert("Invaild creditianls");
-      }
-    });
-  };
-  const register = async (e) => {
-    e.preventDefault();
+  // })
 
-    backendAPI.post("/accounts/create/", data).then((response) => {
-      if (response.data.status === 201) {
-        initialState.user = email;
-        history.replace("/");
-      } else if (response.data.status === 400) {
-        alert("Account already exist");
-      }
-    });
-  };
+  
 
   return (
     <div className="login">
@@ -78,7 +54,9 @@ function Login() {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
-          <button className="login__signInButton" type="submit" onClick={login}>
+          <button className="login__signInButton" type="submit" onClick={(e)=>{
+              login(e,cookies,setCookies,removeCookies,history,loginData);
+          }} >
             Sign In
           </button>
           <p>
@@ -86,7 +64,9 @@ function Login() {
             Sale. Please see our Privacy Notice, our Cookies Notice and our
             Interest-Based Ads Notice.
           </p>
-          <button className="login__registerButton" onClick={register} type="submit">
+          <button className="login__registerButton" type="submit" onClick = {(e)=>{
+            register(e,loginData,data,setCookies,removeCookies,history)
+          }}>
             Create your Amazon Account
           </button>
         </form>

@@ -1,11 +1,9 @@
-import React, { useEffect } from "react";
 import SearchIcon from "@material-ui/icons/Search";
 import ShoppingBasketIcon from "@material-ui/icons/ShoppingBasket";
-import { Link, useHistory } from "react-router-dom";
-import "./Header.css";
-import { useStateValue } from "./StateProvider";
-import { initialState } from "./reducer";
-import backendAPI from "./axios";
+import { Link } from "react-router-dom";
+import "Styles/Header.css";
+import { initialState } from "reducer";
+
 
 function Header() {
   // const history = useHistory();
@@ -23,13 +21,6 @@ function Header() {
   // console.log(initialState.user);
 
   // const url = "http://localhost:3000/";
-
-  useEffect(() => {
-    backendAPI.get("/accounts/get-email/").then((response) => {
-      initialState.user = response.data.email;
-      console.log(response);
-    });
-  });
 
   return (
     <div className="header">

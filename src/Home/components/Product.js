@@ -1,6 +1,7 @@
 import React from 'react';
-import './Product.css';
+import 'Styles/Product.css';
 import StarIcon from '@material-ui/icons/Star';
+
 
 function Product({ id, title, image, price, rating}) {
     return (
