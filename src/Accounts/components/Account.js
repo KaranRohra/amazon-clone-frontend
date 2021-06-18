@@ -1,38 +1,34 @@
 import React from "react";
 import { Link, useHistory } from "react-router-dom";
-import "./Login.css";
+import "Styles/Login.css";
 import { useState } from "react";
-import backendAPI from "./axios";
+import { useCookies } from "react-cookie";
+import  login from "Accounts/helper/LoginAPI";
+import register from "Accounts/helper/RegisterAPI";
+
 
 function Login() {
   const history = useHistory();
-  const [email, setEmail] = useState("");
+  const [email, setEmail] = useState(null);
   const [password, setPassword] = useState("");
+  const [cookies, setCookies, removeCookies] = useCookies("");
+  
   const data = {
     email: email,
     password: password,
   };
-  const login = async (e) => {
-    e.preventDefault();
-    backendAPI.post("/accounts/login/", data).then((response) => {
-      if (response.data.status === 200) {
-        history.replace("/");
-      } else if (response.data.status === 404) {
-        alert("Invaild creditianls");
-      }
-    });
+  const loginData = {
+    username: email,
+    password: password,
   };
-  const register = async (e) => {
-    e.preventDefault();
 
-    backendAPI.post("/accounts/create/", data).then((response) => {
-      if (response.data.status === 201) {
-        history.replace("/");
-      } else if (response.data.status === 400) {
-        alert("Account already exist");
-      }
-    });
-  };
+  // useEffect(() => {
+  //   if(cookies.token){
+  //     history.replace("/");
+  //   }
+  // })
+
+  
 
   return (
     <div className="login">
@@ -48,7 +44,7 @@ function Login() {
         <form action="">
           <h5>Email</h5>
           <input
-            type="text"
+            type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
@@ -58,7 +54,9 @@ function Login() {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
-          <button className="login__signInButton" type="submit" onClick={login}>
+          <button className="login__signInButton" type="submit" onClick={(e)=>{
+              login(e,cookies,setCookies,removeCookies,history,loginData);
+          }} >
             Sign In
           </button>
           <p>
@@ -66,7 +64,9 @@ function Login() {
             Sale. Please see our Privacy Notice, our Cookies Notice and our
             Interest-Based Ads Notice.
           </p>
-          <button className="login__registerButton" onClick={register}>
+          <button className="login__registerButton" type="submit" onClick = {(e)=>{
+            register(e,loginData,data,setCookies,removeCookies,history)
+          }}>
             Create your Amazon Account
           </button>
         </form>
