@@ -1,16 +1,22 @@
-import backendAPI from "axios";
-
+import apiUrls from "../../ApiUrls";
+import axios from "axios"
 export default function login(e, setCookies, removeCookies, history, loginData) {
+  const auth = apiUrls["accounts"]["login"];
+  console.log(auth);
  e.preventDefault();
-  backendAPI
-  .post("/accounts/auth/", loginData)
+  axios
+  
+  .post(auth, loginData)
+  
     .then((response) => {
+        console.log(loginData);
         console.log(response);
       removeCookies("token");
       setCookies("token", `Token ${response.data.token}`);
         history.replace("/");
     })
     .catch((err) => {
+        console.log(loginData);
       alert("Invaild creditianls");
     });
 }

@@ -1,6 +1,6 @@
 import React from "react";
 import { Link, useHistory } from "react-router-dom";
-import "Styles/Login.css";
+import "../../Styles/Login.css";
 import { useState } from "react";
 import { useCookies } from "react-cookie";
 import  login from "Accounts/helper/LoginAPI";
@@ -55,7 +55,7 @@ function Login() {
             onChange={(e) => setPassword(e.target.value)}
           />
           <button className="login__signInButton" type="submit" onClick={(e)=>{
-              login(e,cookies,setCookies,removeCookies,history,loginData);
+              login(e,setCookies,removeCookies,history,loginData);
           }} >
             Sign In
           </button>
