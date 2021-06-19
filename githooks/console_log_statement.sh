@@ -11,6 +11,6 @@ then
   echo "=============================================================="
   exec git diff --cached | grep -ne $consoleregexp
   echo "=============================================================="
-  echo "There are some occurrences of console\.log at your modification."
+  echo "There are some occurrences of console"".""log in modified files."
   exit 1;
 fi
