@@ -4,6 +4,8 @@ import StarIcon from '@material-ui/icons/Star';
 
 
 function Product({ id, title, image, price, rating}) {
+    
+    console.log("my image "+image);
     return (
         <div className="product">
             <div className="product__info">
