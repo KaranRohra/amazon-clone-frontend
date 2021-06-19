@@ -1,21 +1,17 @@
 import apiUrls from "../../ApiUrls";
 import axios from "axios";
-import login from "./LoginAPI";
-import createCart from "Cart/helper/CreateCartApi";
+
 
 export default function register(e, loginData, data, setCookies, removeCookies, history){
+  
   const registerApi = apiUrls["accounts"]["register"];
-  const auth = apiUrls["accounts"]["login"];
-  console.log(registerApi);
- e.preventDefault();
+   e.preventDefault();
   axios
    .post(registerApi, data)
    .then((response) => {
       removeCookies("token");
-      login(e,setCookies,removeCookies,history,loginData)
-      setCookies("token", response.data.token);
-      createCart(response);
-      history.replace("/");
+      alert("Account created successfully  Please login to your account")
+      history.replace("/login");
        
     })
    .catch(function (err) {

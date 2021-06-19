@@ -9,8 +9,6 @@ export default function login(e, setCookies, removeCookies, history, loginData) 
   .post(auth, loginData)
   
     .then((response) => {
-        console.log(loginData);
-        console.log(response);
       removeCookies("token");
       setCookies("token", `Token ${response.data.token}`);
         history.replace("/");
