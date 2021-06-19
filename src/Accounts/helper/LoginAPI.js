@@ -15,6 +15,6 @@ export default function login(e, setCookies, removeCookies, history, loginData) 
     })
     .catch((err) => {
         console.log(loginData);
-      alert("Invaild creditianls");
+      alert("Account does not exist or Invaild creditianls");
     });
 }

@@ -1,7 +1,7 @@
 import React from "react";
 import { Link, useHistory } from "react-router-dom";
 import "../../Styles/Login.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useCookies } from "react-cookie";
 import  login from "Accounts/helper/LoginAPI";
 import register from "Accounts/helper/RegisterAPI";
@@ -22,11 +22,11 @@ function Login() {
     password: password,
   };
 
-  // useEffect(() => {
-  //   if(cookies.token){
-  //     history.replace("/");
-  //   }
-  // })
+  useEffect(() => {
+    if(cookies.token){
+      history.replace("/");
+    }
+  })
 
   
 
