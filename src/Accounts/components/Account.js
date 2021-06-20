@@ -65,7 +65,7 @@ function Login() {
             Interest-Based Ads Notice.
           </p>
           <button className="login__registerButton" type="submit" onClick = {(e)=>{
-            register(e,loginData,data,setCookies,removeCookies,history)
+            register(e,data, removeCookies,history)
           }}>
             Create your Amazon Account
           </button>

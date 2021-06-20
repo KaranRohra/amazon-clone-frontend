@@ -1,5 +1,7 @@
 import apiUrls from "../../ApiUrls";
 import axios from "axios"
+
+
 export default function login(e, setCookies, removeCookies, history, loginData) {
   const auth = apiUrls["accounts"]["login"];
   console.log(auth);
@@ -14,7 +16,6 @@ export default function login(e, setCookies, removeCookies, history, loginData) 
         history.replace("/");
     })
     .catch((err) => {
-        console.log(loginData);
       alert("Account does not exist or Invaild creditianls");
     });
 }

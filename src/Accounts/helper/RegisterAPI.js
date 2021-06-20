@@ -2,7 +2,7 @@ import apiUrls from "../../ApiUrls";
 import axios from "axios";
 
 
-export default function register(e, loginData, data, setCookies, removeCookies, history){
+export default function register(e,  data, removeCookies, history){
   
   const registerApi = apiUrls["accounts"]["register"];
    e.preventDefault();
@@ -10,7 +10,7 @@ export default function register(e, loginData, data, setCookies, removeCookies, 
    .post(registerApi, data)
    .then((response) => {
       removeCookies("token");
-      alert("Account created successfully  Please login to your account")
+      alert("Account created successfully \n Please login to your account")
       history.replace("/login");
        
     })
