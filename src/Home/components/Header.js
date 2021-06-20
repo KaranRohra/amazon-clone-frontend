@@ -3,7 +3,6 @@ import ShoppingBasketIcon from "@material-ui/icons/ShoppingBasket";
 import { Link, useHistory } from "react-router-dom";
 import "Styles/Header.css";
 import { useState, useEffect } from "react";
-import backendAPI from "../../axios";
 import { useCookies } from "react-cookie";
 import { handleLogout } from "Accounts/helper/LogoutAPI";
 import {getAllProducts} from 'Cart/helper/GetAllProducts';

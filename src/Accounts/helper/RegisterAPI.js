@@ -10,7 +10,7 @@ export default function register(e,  data, removeCookies, history){
    .post(registerApi, data)
    .then((response) => {
       removeCookies("token");
-      alert("Account created successfully \n Please login to your account")
+      alert("Account created successfully \nPlease login to your account")
       history.replace("/login");
        
     })

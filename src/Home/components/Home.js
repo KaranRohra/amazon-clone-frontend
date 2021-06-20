@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import backendAPI from "../../axios";
+import baseURL from "ApiUrls";
 import "Styles/Home.css";
 import Product from 'Products/components/Product';
 import {getAllProducts} from 'Home/helper/ProductAPI';
@@ -10,13 +10,8 @@ function Home() {
 
   
   useEffect(() => {
-    // console.log("hey");
     getAllProducts(setData); 
-  },[backendAPI.defaults.baseURL]);
-
-  if (data) {
-    // console.log(data);
-  }
+  },[baseURL]);
 
   return (
     <div className="home">

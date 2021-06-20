@@ -1,10 +1,11 @@
-import backendAPI from "../../axios";
+import apiUrls from "ApiUrls";
+import axios from "axios";
 
 
 export function handleLogout(cookies, history, setEmail, removeCookies) {
-    backendAPI({
+    axios({
         method: "GET",
-        url: "/accounts/logout/",
+        url: apiUrls.accounts.logout,
         headers: {
           Authorization: `${cookies.token}`,
         },

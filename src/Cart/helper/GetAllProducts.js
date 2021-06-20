@@ -1,16 +1,18 @@
-import backendAPI from "../../axios";
+import apiUrls from "ApiUrls";
+import axios from "axios";
 
-let p;
+
+let allProducts;
 export function getAllProducts(setAllProducts,cookies) {
-    backendAPI({
+    axios({
         method: "GET",
-        url: "cart/get-products/",
+        url: apiUrls.cart["get-products"],
         headers: {
-            Authorization: `${cookies.token}`
+            Authorization: cookies.token
         }
     }).then((response) => {
         setAllProducts([response.data.length]);
-        p = response.data.length;
+        allProducts = response.data.length;
     })
-    return p;
+    return allProducts;
 }

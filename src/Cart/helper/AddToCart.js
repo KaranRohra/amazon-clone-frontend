@@ -1,17 +1,16 @@
-import backendAPI from "../../axios";
+import apiUrls from "ApiUrls";
+import axios from "axios";
+
 
 export function addToCart(cookies,id,history) {
-    backendAPI({
+    axios({
         method: "GET",
-        url: "/cart/add-product/"+id,
+        url: `${apiUrls.cart["add-product"]}${id}/`,
         headers: {
-            Authorization: `${cookies.token}`,
+            Authorization: cookies.token,
         }
     }).then((response)=>{
-        console.log(response);
         history.replace("/");
-        // window.location.reload(false);
     }).catch((err)=>{
-        console.log(err);
     })
 }

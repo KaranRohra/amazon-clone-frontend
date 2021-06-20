@@ -3,7 +3,7 @@ import 'Styles/Product.css';
 import StarIcon from '@material-ui/icons/Star';
 import { useCookies } from "react-cookie";
 import {addToCart} from 'Cart/helper/AddToCart';
-import { Link, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 
 function Product({ id, title, image, price, rating}) {

@@ -1,9 +1,11 @@
-import backendAPI from '../../axios';
+import apiUrls from "ApiUrls";
+import axios from "axios";
+
 
 export function getUser(cookies,setEmail){
-    backendAPI({
+    axios({
         method: "GET",
-        url: "/accounts/get-user/",
+        url: apiUrls.accounts["get-user"],
         headers: {
           Authorization: `${cookies.token}`,
         },

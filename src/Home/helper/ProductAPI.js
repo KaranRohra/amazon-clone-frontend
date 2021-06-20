@@ -1,9 +1,9 @@
-import backendAPI from "../../axios";
+import apiUrls from "ApiUrls";
+import axios from "axios";
 
 
 export function getAllProducts(setData) {
-  backendAPI.get("/products/").then((response) => {
-    console.log(response);
+  axios.get(apiUrls.products["get-products-by-page"]+"0/").then((response) => {
     setData(response.data);
   });
 }
