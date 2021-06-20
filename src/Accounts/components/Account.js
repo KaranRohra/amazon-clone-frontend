@@ -1,7 +1,7 @@
 import React from "react";
 import { Link, useHistory } from "react-router-dom";
-import "Styles/Login.css";
-import { useState } from "react";
+import "../../Styles/Login.css";
+import { useState, useEffect } from "react";
 import { useCookies } from "react-cookie";
 import  login from "Accounts/helper/LoginAPI";
 import register from "Accounts/helper/RegisterAPI";
@@ -22,11 +22,11 @@ function Login() {
     password: password,
   };
 
-  // useEffect(() => {
-  //   if(cookies.token){
-  //     history.replace("/");
-  //   }
-  // })
+  useEffect(() => {
+    if(cookies.token){
+      history.replace("/");
+    }
+  })
 
   
 
@@ -55,7 +55,7 @@ function Login() {
             onChange={(e) => setPassword(e.target.value)}
           />
           <button className="login__signInButton" type="submit" onClick={(e)=>{
-              login(e,cookies,setCookies,removeCookies,history,loginData);
+              login(e,setCookies,removeCookies,history,loginData);
           }} >
             Sign In
           </button>
@@ -65,7 +65,7 @@ function Login() {
             Interest-Based Ads Notice.
           </p>
           <button className="login__registerButton" type="submit" onClick = {(e)=>{
-            register(e,loginData,data,setCookies,removeCookies,history)
+            register(e,data, removeCookies,history)
           }}>
             Create your Amazon Account
           </button>

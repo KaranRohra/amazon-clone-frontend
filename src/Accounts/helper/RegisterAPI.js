@@ -1,29 +1,19 @@
-import backendAPI from "axios";
+import apiUrls from "../../ApiUrls";
+import axios from "axios";
 
 
-export default function register(e, loginData, data, setCookies, removeCookies, history){
- e.preventDefault();
-
- backendAPI
-   .post("/accounts/register/", data)
+export default function register(e,  data, removeCookies, history){
+  
+  const registerApi = apiUrls["accounts"]["register"];
+   e.preventDefault();
+  axios
+   .post(registerApi, data)
    .then((response) => {
-     removeCookies("token");
-     if (response.status === 201) {
-       backendAPI.post("/accounts/auth/", loginData).then((response) => {
-         if (response.status === 200) {
-           setCookies("token", response.data.token);
-           backendAPI({
-             method: "GET",
-             url: "/cart/create/",
-             headers: {
-               Authorization: `Token ${response.data.token}`,
-             },
-           });
-           history.replace("/");
-         }
-       });
-     }
-   })
+      removeCookies("token");
+      alert("Account created successfully \n Please login to your account")
+      history.replace("/login");
+       
+    })
    .catch(function (err) {
      if (err.response && err.response.data.email) {
        alert(err.response.data.email);
