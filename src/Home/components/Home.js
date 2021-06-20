@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import backendAPI from "../../axios";
 import "Styles/Home.css";
-import Product from 'Home/components/Product';
+import Product from 'Products/components/Product';
 import {getAllProducts} from 'Home/helper/ProductAPI';
 
 

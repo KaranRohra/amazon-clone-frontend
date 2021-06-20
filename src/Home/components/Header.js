@@ -5,28 +5,25 @@ import "Styles/Header.css";
 import { useState, useEffect } from "react";
 import backendAPI from "../../axios";
 import { useCookies } from "react-cookie";
-import { handleLogout } from "Home/helper/LogoutAPI";
+import { handleLogout } from "Accounts/helper/LogoutAPI";
+import {getAllProducts} from 'Cart/helper/GetAllProducts';
+import {getUser} from 'Accounts/helper/GetUser';
 
 
 function Header() {
   const [email, setEmail] = useState(null);
   const [cookies, setCookies, removeCookies] = useCookies("");
+  const [allProducts, setAllProducts] = useState([]);
 
   const history = useHistory();
+
+  function getTotal(){
+    return getAllProducts(setAllProducts,cookies);
+  }
   
   useEffect(() => {
-    backendAPI({
-      method: "GET",
-      url: "/accounts/get-user/",
-      headers: {
-        Authorization: `${cookies.token}`,
-      },
-    }).then((response) => {
-      setEmail(response.data.email);
-    })
-    .catch((err) => {
-    })
-  },);
+    getUser(cookies,setEmail);
+  },[]);
 
 
   
@@ -68,7 +65,7 @@ function Header() {
           <div className="header__optionBasket">
             {email ? <ShoppingBasketIcon /> : ""}
             {email ? (
-              <span className="header_optionLineTwo header_basketCount">0</span>
+              <span className="header_optionLineTwo header_basketCount">{getTotal()}</span>
             ) : (
               ""
             )}
