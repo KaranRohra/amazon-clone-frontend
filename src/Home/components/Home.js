@@ -1,23 +1,17 @@
 import React, { useState, useEffect } from "react";
-import backendAPI from "axios";
+import baseURL from "ApiUrls";
 import "Styles/Home.css";
+import Product from 'Products/components/Product';
+import {getAllProducts} from 'Home/helper/ProductAPI';
 
 
 function Home() {
   const [data, setData] = useState(null);
 
-  const url = "http://localhost:5000/products/get-product-by-page-number/0/"
+  
   useEffect(() => {
-    backendAPI
-      .get("/products/get-product-by-page-number/0/")
-      .then((response) => {
-        setData(response.data);
-      });
-  }, [url]);
-
-  if (data) {
-    console.log(data);
-  }
+    getAllProducts(setData); 
+  },[baseURL]);
 
   return (
     <div className="home">
@@ -27,66 +21,66 @@ function Home() {
           src="https://images-eu.ssl-images-amazon.com/images/G/02/digital/video/merch2016/Hero/Covid19/Generic/GWBleedingHero_ENG_COVIDUPDATE__XSite_1500x600_PV_en-GB._CB428684220_.jpg"
           alt=""
         />
-        {/* <div className="home__row">
+        <div className="home__row">
+          
           {data && (
             <Product
-              id={data["product_0"]["details"]["id"]}
-              title={data["product_0"]["details"]["name"]}
-              price={data["product_0"]["details"]["price"]}
+              id={data[0]["id"]}
+              title={data[0]["name"]}
+              price={data[0]["price"]}
               rating={5}
               image={
-                backendAPI.defaults.baseURL + data["product_0"]["images"][0]
+                data[0]["images"][0]["image_url"]
               }
             />
           )}
           {data && (
             <Product
-              id={data["product_1"]["details"]["id"]}
-              title={data["product_1"]["details"]["name"]}
-              image={
-                backendAPI.defaults.baseURL + data["product_1"]["images"][0]
-              }
-              price={data["product_1"]["details"]["price"]}
+              id={data[1]["id"]}
+              title={data[1]["name"]}
+              price={data[1]["price"]}
               rating={5}
+              image={
+                data[1]["images"][0]["image_url"]
+              }
             />
           )}
         </div>
-
         <div className="home__row">
-          {data && (
+        {data && (
             <Product
-              id={data["product_2"]["details"]["id"]}
-              title={data["product_2"]["details"]["name"]}
-              image={
-                backendAPI.defaults.baseURL + data["product_2"]["images"][0]
-              }
-              price={data["product_2"]["details"]["price"]}
+              id={data[2]["id"]}
+              title={data[2]["name"]}
+              price={data[2]["price"]}
               rating={5}
+              image={
+                data[2]["images"][0]["image_url"]
+              }
             />
           )}
           {data && (
             <Product
-              id={data["product_3"]["details"]["id"]}
-              title={data["product_3"]["details"]["name"]}
-              image={
-                backendAPI.defaults.baseURL + data["product_3"]["images"][0]
-              }
-              price={data["product_3"]["details"]["price"]}
+              id={data[3]["id"]}
+              title={data[3]["name"]}
+              price={data[3]["price"]}
               rating={5}
+              image={
+                data[3]["images"][0]["image_url"]
+              }
             />
           )}
           {data && (
             <Product
-              id={data["product_4"]["details"]["id"]}
-              title={data["product_4"]["details"]["name"]}
-              image={
-                backendAPI.defaults.baseURL + data["product_4"]["images"][0]
-              }
-              price={data["product_4"]["details"]["price"]}
+              id={data[4]["id"]}
+              title={data[4]["name"]}
+              price={data[4]["price"]}
               rating={5}
+              image={
+                data[4]["images"][0]["image_url"]
+              }
             />
           )}
-        </div> */}
+        </div>
 
         <div className="home__row">
           
