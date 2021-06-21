@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import baseURL from "ApiUrls";
 import "Styles/Home.css";
 import Product from 'Products/components/Product';
 import {getAllProducts} from 'Home/helper/ProductAPI';
@@ -11,7 +10,7 @@ function Home() {
   
   useEffect(() => {
     getAllProducts(setData); 
-  },[baseURL]);
+  });
 
   return (
     <div className="home">

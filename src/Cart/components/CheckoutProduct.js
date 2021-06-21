@@ -6,9 +6,7 @@ import {useCookies} from "react-cookie";
 import baseURL from "backendApi";
 
 function CheckoutProduct({price,name,image,id,setRemove}) {
-  const[cookies] = useCookies("")
-   //const url = "http://localhost:5000"
-   console.log(baseURL);
+  const[cookies] = useCookies("");
     return (
       <div className="checkoutProduct">
         <img className="checkoutProduct__image" src={baseURL+ image} alt="" />
