@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import "Styles/Home.css";
 import Product from 'Products/components/Product';
 import {getAllProducts} from 'Home/helper/ProductAPI';
-
+import baseURL from "ApiUrls"
 
 function Home() {
   const [data, setData] = useState(null);
@@ -10,7 +10,7 @@ function Home() {
   
   useEffect(() => {
     getAllProducts(setData); 
-  });
+  },[baseURL]);
 
   return (
     <div className="home">
