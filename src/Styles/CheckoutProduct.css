@@ -4,7 +4,7 @@
   margin-bottom: 20px;
 }
 
-.chekoutProduct__info {
+.checkoutProduct__info {
   padding-left: 20px;
 }
 
@@ -14,7 +14,22 @@
   margin-top: 10px;
   border-color: #a88734 #9c7e31 #846a29;
   color: #111;
+  border-radius: 2px;
+
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+  box-shadow: 0 2px #999;
 }
+
+.checkoutProduct__info > button:active{
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+  box-shadow: 0 2px #666;
+  transform: translateY(4px);
+}
+
 
 .checkoutProduct__image {
   object-fit: contain;
