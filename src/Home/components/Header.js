@@ -5,20 +5,14 @@ import "Styles/Header.css";
 import { useState, useEffect } from "react";
 import { useCookies } from "react-cookie";
 import { handleLogout } from "Accounts/helper/LogoutAPI";
-import {getAllProducts} from 'Cart/helper/GetAllProducts';
 import {getUser} from 'Accounts/helper/GetUser';
 
 
 function Header() {
   const [email, setEmail] = useState(null);
   const [cookies, setCookies, removeCookies] = useCookies("");
-  const [allProducts, setAllProducts] = useState([]);
 
   const history = useHistory();
-
-  function getTotal(){
-    return getAllProducts(setAllProducts,cookies);
-  }
   
   useEffect(() => {
     getUser(cookies,setEmail);
@@ -63,11 +57,6 @@ function Header() {
         <Link to="/checkout">
           <div className="header__optionBasket">
             {email ? <ShoppingBasketIcon /> : ""}
-            {email ? (
-              <span className="header_optionLineTwo header_basketCount">{getTotal()}</span>
-            ) : (
-              ""
-            )}
           </div>
         </Link>
       </div>
