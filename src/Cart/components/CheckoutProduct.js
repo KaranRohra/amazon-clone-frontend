@@ -1,34 +1,29 @@
 import React from 'react'
 import "Styles/CheckoutProduct.css"
 import StarIcon from "@material-ui/icons/Star";
+import { deleteFromCart } from 'Cart/helper/DeleteFromCart';
+import {useCookies} from "react-cookie";
+import baseURL from "backendApi";
 
-
-function CheckoutProduct() {
- function removefromBasket(){
-
- };
+function CheckoutProduct({price,name,image,id,setRemove}) {
+  const[cookies] = useCookies("")
+   //const url = "http://localhost:5000"
+   console.log(baseURL);
     return (
       <div className="checkoutProduct">
-        <img
-          className="checkoutProduct__image"
-          src="https://images-na.ssl-images-amazon.com/images/I/51Zymoq7UnL._SX325_BO1,204,203,200_.jpg"
-          alt=""
-        />
-        <div className="chekoutProduct__info">
-          <p className="checkoutProduct__title">
-            The Lean Startup: How Constant Innovation Creates Radically
-            Successful Businesses Paperback
-          </p>
+        <img className="checkoutProduct__image" src={baseURL+ image} alt="" />
+        <div className="checkoutProduct__info">
+          <p className="checkoutProduct__title">{name}</p>
           <p className="checkoutProduct__price">
-            <small>$</small>
-            <strong>11.96</strong>
+            <small>&#8377;</small>
+            <strong>{price}</strong>
           </p>
           <div className="checkoutProduct__rating">
             <p>
               <StarIcon />
             </p>
           </div>
-          <button onClick="{removeFromBasket}">Remove from Basket</button>
+          <button onClick={(e)=>{deleteFromCart(e,cookies,id,setRemove)}}>Remove from Basket</button>
         </div>
       </div>
     );

@@ -2,10 +2,18 @@ import React from 'react'
 import "Styles/Subtotal.css"
 
 
-function Subtotal() {
+function Subtotal({data}) {
+  
+  function total() {
+    let sum = 0;
+    data.map((item)=>{
+      sum+=item.price;
+    })
+    return sum;
+  }
     return (
       <div className="subtotal">
-        <p>Subtotal(1 items):Rs 11.96</p>
+        <p>Subtotal({data.length} items):Rs {total()}</p>
         <small className="subtotal__gift">
           <input type="checkbox" />
           The order contains gift

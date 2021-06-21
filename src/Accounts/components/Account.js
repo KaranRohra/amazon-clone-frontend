@@ -1,6 +1,6 @@
 import React from "react";
 import { Link, useHistory } from "react-router-dom";
-import "../../Styles/Login.css";
+import "Styles/Login.css";
 import { useState, useEffect } from "react";
 import { useCookies } from "react-cookie";
 import  login from "Accounts/helper/LoginAPI";

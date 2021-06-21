@@ -1,4 +1,6 @@
-import backendAPI from "axios";
+import apiUrls from "ApiUrls";
+import axios from "axios"
+
 
 export default function login(e, setCookies, removeCookies, history, loginData) {
  e.preventDefault();
@@ -14,3 +16,7 @@ export default function login(e, setCookies, removeCookies, history, loginData) 
       alert("Invaild creditianls");
     });
 }
+
+
+
+

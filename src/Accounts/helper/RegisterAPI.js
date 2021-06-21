@@ -1,4 +1,4 @@
-import apiUrls from "../../ApiUrls";
+import apiUrls from "ApiUrls";
 import axios from "axios";
 
 
