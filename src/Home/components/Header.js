@@ -11,13 +11,16 @@ import {getUser} from 'Accounts/helper/GetUser';
 function Header() {
   const [email, setEmail] = useState(null);
   const [cookies, setCookies, removeCookies] = useCookies("");
+  const[search,setSearch]  = useState("");
 
   const history = useHistory();
   
   useEffect(() => {
     getUser(cookies,setEmail);
   },[]);
+  function handleSearch(){
 
+  }
 
   
   return (
@@ -30,12 +33,29 @@ function Header() {
         />
       </Link>
       <div className="header__search">
-        <input className="header__searchInput" type="text" />
-        <SearchIcon className="header__searchIcon" />
+        <input
+          className="header__searchInput"
+          type="text"
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+        />
+        <Link to ="/productBySearch">
+          <SearchIcon
+            className="header__searchIcon"
+            onClick={(e) => {
+              handleSearch(search);
+            }}
+          />
+        </Link>
       </div>
       <div className="header__nav">
         <Link to={!email && "/login"}>
-          <div onClick={(e) => {handleLogout(cookies, history, setEmail, removeCookies)}} className="header__option">
+          <div
+            onClick={(e) => {
+              handleLogout(cookies, history, setEmail, removeCookies);
+            }}
+            className="header__option"
+          >
             <span className="header__optionLineOne">
               {email ? "Hello " + email : "Hello Guest"}
             </span>
@@ -50,7 +70,6 @@ function Header() {
           <span className="header__optionLineTwo">& orders</span>
         </div>
 
-       
         <Link to="/checkout">
           <div className="header__optionBasket">
             {email ? <ShoppingBasketIcon /> : ""}
