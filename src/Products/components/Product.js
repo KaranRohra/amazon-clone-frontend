@@ -4,8 +4,8 @@ import StarIcon from '@material-ui/icons/Star';
 import { useCookies } from "react-cookie";
 import {addToCart} from 'Cart/helper/AddToCart';
 import { useHistory,Link } from "react-router-dom";
-import {getProductDetailsById} from "Products/helper/getProductDetails"
-import Details from "Products/components/Details"
+
+
 function Product({ id, title, image, price, rating}) {
 
     const [cookies, setCookies, removeCookies] = useCookies("");

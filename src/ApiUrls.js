@@ -16,6 +16,7 @@
         "image": baseURL + "products/image/",  // products/image/5/
         "get-all-produts": baseURL + "products/",
         "products": baseURL + "products/",  // products/1/
+        "search": baseURL + "products/page-number/", //search=""
     }
 }
 export default apiUrls;

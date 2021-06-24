@@ -10,13 +10,24 @@ import { getUser } from "Accounts/helper/GetUser";
 function Header() {
   const [email, setEmail] = useState(null);
   const [cookies, setCookies, removeCookies] = useCookies("");
+  const [text, setText] = useState("");
 
   const history = useHistory();
 
   useEffect(() => {
     getUser(cookies, setEmail);
   }, []);
-  function handleSearch() {}
+
+
+  function handleSearch(){
+      history.push("/search/"+text+"/"+"1/");
+  }
+  
+  useEffect(() => {
+    getUser(cookies, setEmail);
+  }, []);
+
+
 
   return (
     <div className="header">
@@ -28,8 +39,8 @@ function Header() {
         />
       </Link>
       <div className="header__search">
-        <input className="header__searchInput" type="text" />
-        <SearchIcon className="header__searchIcon" />
+        <input className="header__searchInput" type="text" value={text} onChange={(e) => {setText(e.target.value)}}/>
+        <SearchIcon onClick={()=>{handleSearch()}} className="header__searchIcon" />
       </div>
       <div className="header__nav">
         <Link to={!email && "/login"}>
