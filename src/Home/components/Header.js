@@ -14,6 +14,10 @@ function Header() {
 
   const history = useHistory();
 
+  useEffect(() => {
+    getUser(cookies, setEmail);
+  }, []);
+
 
   function handleSearch(){
       history.push("/search/"+text+"/"+"1/");
@@ -22,6 +26,8 @@ function Header() {
   useEffect(() => {
     getUser(cookies, setEmail);
   }, []);
+
+
 
   return (
     <div className="header">

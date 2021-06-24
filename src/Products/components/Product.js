@@ -6,7 +6,6 @@ import {addToCart} from 'Cart/helper/AddToCart';
 import { useHistory,Link } from "react-router-dom";
 
 
-
 function Product({ id, title, image, price, rating}) {
 
     const [cookies, setCookies, removeCookies] = useCookies("");

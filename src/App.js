@@ -23,7 +23,7 @@ function App() {
             <ProductsBySearch />
           </Route>
           <Route path="/card/">
-            <Card />
+            <Card/>
           </Route>
           <Route path="/detail/">
             <Header />
