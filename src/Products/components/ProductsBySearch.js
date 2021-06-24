@@ -11,14 +11,15 @@ const Data = JSON.parse(window.localStorage.getItem("abcdef"))|| null;
 function ProductsBySearch() {
 
   const [data, setData] = useState(Data);
+  const [searchedText,setSearchedText] = useState();
 
   const history = useHistory();
 
   
   function getText(url){
-      for(let i=url.length-2;i>=0;i--){
+      for(let i=url.length-4;i>=0;i--){
           if(url.charAt(i) == "/"){
-            for(let j=i+1;j<url.length-1;j++){
+            for(let j=i+1;j<url.length-3;j++){
                 text += url.charAt(j);
             }
             break;
@@ -31,8 +32,11 @@ function ProductsBySearch() {
   useEffect(() => {
       var url = window.location.href;
       console.log(text);
-      if(url!="http://localhost:3000/search2/")
-          getSearchedProducts(getText(url),setData,history);
+      if(url!="http://localhost:3000/search2/"){
+        getSearchedProducts(getText(url),setData,history,url.charAt(url.length-2));
+        setSearchedText(text);
+      }
+          
       text=""
       history.push("/search2/")
       
@@ -45,9 +49,11 @@ function ProductsBySearch() {
 
 
   function handlePageNumber(page_no){
-    console.log(page_no);
-    if(data)
-      console.log(data[0].category);
+    // console.log(page_no);
+    // if(data)
+    //   console.log(data[0].category);
+    getSearchedProducts(searchedText,setData,history,page_no);
+
   }
   
   console.log(data);
@@ -65,8 +71,8 @@ function ProductsBySearch() {
         ))}
         <div class="page__number">
         
-        {data && <button className="pg" onClick={()=>{handlePageNumber(0)}}>1</button>}
-        {data && <button className="pg" onClick={()=>{handlePageNumber(1)}}>2</button>}
+        {data && <button className="pg" onClick={()=>{handlePageNumber(1)}}>1</button>}
+        {data && <button className="pg" onClick={()=>{handlePageNumber(2)}}>2</button>}
         
       </div>
     </div>

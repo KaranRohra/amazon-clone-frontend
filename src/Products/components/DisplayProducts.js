@@ -1,27 +1,25 @@
 import React from "react";
 import "Styles/CheckoutProduct.css";
 import StarIcon from "@material-ui/icons/Star";
+import { getProductDetailsById } from "Products/helper/getProductDetails";
+import { useHistory } from "react-router-dom";
 
 function DisplayProducts({ id, name, image, price }) {
   console.log(id + name);
+
+  const history = useHistory();
+
+  const productDetails =(product_id)=>{
+    history.push("/detail/"+product_id);
+  }
   return (
-    // <div className="checkoutProduct">
-    //   <img className="checkoutProduct__image" src={image} alt="" />
-    //   <div className="checkoutProduct__info">
-    //     <p className="checkoutProduct__title">{name}</p>
-    //     <p className="checkoutProduct__price">
-    //       <small>&#8377;</small>
-    //       <strong>{price}</strong>
-    //     </p>
-    //     <div className="checkoutProduct__rating">
-    //       <p>
-    //         <StarIcon />
-    //       </p>
-    //     </div>
-    //   </div>
+
+    
+
+    
     <div className="jcbhj">
         <div className="checkoutProduct">
-        <img className="checkoutProduct__image" src={image} alt="" />
+        <img className="checkoutProduct__image" onClick={()=>{productDetails(id)}} src={image} alt="" />
         <div className="checkoutProduct__info">
           <p className="checkoutProduct__title">{name}</p>
           <p className="checkoutProduct__price">
