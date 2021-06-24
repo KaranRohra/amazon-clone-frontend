@@ -12,9 +12,7 @@ function Product({ id, title, image, price, rating}) {
     const history = useHistory();
     const productDetails =(product_id)=>{
         history.push("/detail/"+product_id);
-        
-        
-    }
+      }
     return (
       <div className="product">
         <div className="product__info">

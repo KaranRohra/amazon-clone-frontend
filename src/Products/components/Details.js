@@ -3,8 +3,8 @@ import React from "react";
 import { useEffect, useState } from "react";
 import { FaCaretLeft, FaCaretRight } from "react-icons/fa";
 import "Styles/Details.css";
-import "Styles/CheckoutProduct.css"
-import OutlinedCard from "Products/components/OutlinedCard"
+import "Styles/CheckoutProduct.css";
+import OutlinedCard from "Products/components/OutlinedCard";
 
 var id = "";
 const Details = () => {
@@ -16,7 +16,6 @@ const Details = () => {
       if (url.charAt(i) == "/") {
         console.log("hi");
         for (var j = i + 1; j <= url.length - 2; j++) {
-          console.log("hello");
           id += url.charAt(j);
         }
 
@@ -28,13 +27,12 @@ const Details = () => {
   useEffect(() => {
     const url = window.location.href + "/";
     getProductDetailsById(getId(url), setData);
-    id="";
+    id = "";
   }, ["http://localhost:3000/detail/"]);
 
   const [current, setCurrent] = useState(0);
   if (data) {
     var length = data.images.length;
-    console.log(data.images);
   }
 
   const nextSlide = () => {
@@ -49,13 +47,10 @@ const Details = () => {
     return null;
   }
   var myObject;
-  if(data){
-     myObject = data.description;
+  if (data) {
+    myObject = data.description;
   }
- 
-  
-  
-  
+
   return (
     <div className="details">
       <div className="details__left">
@@ -81,10 +76,7 @@ const Details = () => {
         </section>
       </div>
       <div className="details__right">
-        {data && <OutlinedCard
-           details = {data}
-        />}
-        
+        {data && <OutlinedCard details={data} />}
       </div>
     </div>
   );

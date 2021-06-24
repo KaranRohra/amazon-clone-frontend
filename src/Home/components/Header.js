@@ -5,24 +5,19 @@ import "Styles/Header.css";
 import { useState, useEffect } from "react";
 import { useCookies } from "react-cookie";
 import { handleLogout } from "Accounts/helper/LogoutAPI";
-import {getUser} from 'Accounts/helper/GetUser';
-
+import { getUser } from "Accounts/helper/GetUser";
 
 function Header() {
   const [email, setEmail] = useState(null);
   const [cookies, setCookies, removeCookies] = useCookies("");
-  const[search,setSearch]  = useState("");
 
   const history = useHistory();
-  
+
   useEffect(() => {
-    getUser(cookies,setEmail);
-  },[]);
-  function handleSearch(){
+    getUser(cookies, setEmail);
+  }, []);
+  function handleSearch() {}
 
-  }
-
-  
   return (
     <div className="header">
       <Link to="/">
@@ -33,20 +28,8 @@ function Header() {
         />
       </Link>
       <div className="header__search">
-        <input
-          className="header__searchInput"
-          type="text"
-          value={search}
-          onChange={(e) => setSearch(e.target.value)}
-        />
-        <Link to ="/productBySearch">
-          <SearchIcon
-            className="header__searchIcon"
-            onClick={(e) => {
-              handleSearch(search);
-            }}
-          />
-        </Link>
+        <input className="header__searchInput" type="text" />
+        <SearchIcon className="header__searchIcon" />
       </div>
       <div className="header__nav">
         <Link to={!email && "/login"}>

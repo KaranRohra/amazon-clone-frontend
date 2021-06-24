@@ -5,15 +5,17 @@ import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
-import "Styles/Card.css"
+import "Styles/Card.css";
 import { useHistory } from "react-router-dom";
 import { useCookies } from "react-cookie";
 import { addToCart } from "Cart/helper/AddToCart";
+
 const useStyles = makeStyles({
   root: {
     minWidth: 275,
     marginTop: 200,
     "align-items": "center",
+    "box-shadow": "0 0 5px  black",
   },
   bullet: {
     display: "inline-block",
@@ -42,17 +44,17 @@ const useStyles = makeStyles({
   },
 });
 
-export default function OutlinedCard({details}) {
-  const [cookies,setCookies] = useCookies("");
-   const history = useHistory();
+export default function OutlinedCard({ details }) {
+  const [cookies, setCookies] = useCookies("");
+  const history = useHistory();
   const classes = useStyles();
- 
+
   const bull = <span className={classes.bullet}>•</span>;
   var myObject;
-  if(details){
-       myObject = details.description;
+  if (details) {
+    myObject = details.description;
   }
-  
+
   return (
     <Card className={classes.root}>
       <CardContent>
