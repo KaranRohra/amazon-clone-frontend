@@ -5,21 +5,19 @@ import "Styles/Header.css";
 import { useState, useEffect } from "react";
 import { useCookies } from "react-cookie";
 import { handleLogout } from "Accounts/helper/LogoutAPI";
-import {getUser} from 'Accounts/helper/GetUser';
-
+import { getUser } from "Accounts/helper/GetUser";
 
 function Header() {
   const [email, setEmail] = useState(null);
   const [cookies, setCookies, removeCookies] = useCookies("");
 
   const history = useHistory();
-  
+
   useEffect(() => {
-    getUser(cookies,setEmail);
-  },[]);
+    getUser(cookies, setEmail);
+  }, []);
+  function handleSearch() {}
 
-
-  
   return (
     <div className="header">
       <Link to="/">
@@ -35,7 +33,12 @@ function Header() {
       </div>
       <div className="header__nav">
         <Link to={!email && "/login"}>
-          <div onClick={(e) => {handleLogout(cookies, history, setEmail, removeCookies)}} className="header__option">
+          <div
+            onClick={(e) => {
+              handleLogout(cookies, history, setEmail, removeCookies);
+            }}
+            className="header__option"
+          >
             <span className="header__optionLineOne">
               {email ? "Hello " + email : "Hello Guest"}
             </span>
@@ -50,7 +53,6 @@ function Header() {
           <span className="header__optionLineTwo">& orders</span>
         </div>
 
-       
         <Link to="/checkout">
           <div className="header__optionBasket">
             {email ? <ShoppingBasketIcon /> : ""}

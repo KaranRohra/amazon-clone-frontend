@@ -1,0 +1,15 @@
+.card_button {
+  align-items: center;
+  width: 30%;
+  background: #f0c14b;
+  border: 1px solid;
+  margin-top: 10px;
+  border-color: #a88734 #9c7e31 #846a29;
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+  color: black;
+  border-radius: 15px;
+  box-shadow: 0 2px #999;
+  
+}
