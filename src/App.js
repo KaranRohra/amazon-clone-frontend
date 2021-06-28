@@ -7,13 +7,16 @@ import Checkout from "Cart/components/Checkout";
 import ProductsBySearch from "Products/components/ProductsBySearch";
 import Details from "Products/components/Details";
 import Card from "Products/components/OutlinedCard";
-
+import Address from "Cart/components/Address";
 
 function App() {
   return (
     <Router>
       <div className="App">
         <Switch>
+          <Route exact path ="/add">
+              <Address/>
+          </Route>
           <Route path="/search2/">
             <Header />
             <ProductsBySearch />
