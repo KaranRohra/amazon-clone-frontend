@@ -10,7 +10,6 @@ export function getUser(cookies,setEmail,setUid){
           Authorization: `${cookies.token}`,
         },
       }).then((response) => {
-        console.log(response.data);
         if(setEmail!=null){
           setEmail(response.data.email);
         }

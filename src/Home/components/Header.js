@@ -6,6 +6,7 @@ import { useState, useEffect } from "react";
 import { useCookies } from "react-cookie";
 import { handleLogout } from "Accounts/helper/LogoutAPI";
 import { getUser } from "Accounts/helper/GetUser";
+import baseURL from "backendApi";
 
 function Header() {
   const [email, setEmail] = useState(null);
@@ -16,7 +17,7 @@ function Header() {
 
   useEffect(() => {
     getUser(cookies, setEmail,null);
-  }, []);
+  }, [baseURL]);
 
 
   function handleSearch(){

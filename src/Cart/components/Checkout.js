@@ -9,11 +9,11 @@ import { useCookies } from "react-cookie";
 function Checkout() {
   const url = apiUrls.cart["remove-products"];
   const [cookies, setCookies, removeCookies] = useCookies("");
-  const [data, setData] = useState(null);
+  const [data, setData] = useState([]);
   const [remove, setRemove] = useState("");
   useEffect(() => {
     getAllProductsOnCheckoutPage(cookies, setData);
-  }, ["http://localhost:3000/checkout", remove]);
+  }, ["http://localhost:3000/checkout","http://localhost:3000/pay/" ,remove]);
 
   return (
     <div className="checkout">
@@ -35,6 +35,7 @@ function Checkout() {
                 price={item.price}
                 id={item.id}
                 setRemove={setRemove}
+                present = {true}
               />
             ))}
         </div>

@@ -8,13 +8,11 @@ import OutlinedCard from "Products/components/OutlinedCard";
 
 var id = "";
 const Details = () => {
-  const [Id, setId] = useState("");
   const [data, setData] = useState("");
 
   function getId(url) {
     for (var i = url.length - 2; i >= 0; i--) {
-      if (url.charAt(i) == "/") {
-        console.log("hi");
+      if (url.charAt(i) === "/") {
         for (var j = i + 1; j <= url.length - 2; j++) {
           id += url.charAt(j);
         }
@@ -46,10 +44,7 @@ const Details = () => {
   if (!Array.isArray(data.images) || data.images.length <= 0) {
     return null;
   }
-  var myObject;
-  if (data) {
-    myObject = data.description;
-  }
+  
 
   return (
     <div className="details">

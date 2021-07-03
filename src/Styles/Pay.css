@@ -1,0 +1,51 @@
+*{
+ 
+    font-family: sans-serif;
+    
+}
+
+.pro{
+  background-color: white;
+}
+table
+{
+  border:1px solid rgba(0,0,0,.20);
+
+
+}
+td
+{
+    padding-right: 40px;
+}
+a
+{
+    text-decoration: none;
+}
+.pay
+{   background-color: white;
+    position: relative;
+    padding-top: 80px;
+    padding-left:30px;
+    
+}
+.yourorders{
+  /* border:1px solid rgba(0,0,0,.20); */
+  padding-right: 40px;
+}
+
+.confirm_order_btn{
+  align-items: center;
+  width: 10%;
+  background: #f0c14b;
+  border: 1px solid;
+  margin-top: 10px;
+  margin-left: 80px;
+  border-color: #a88734 #9c7e31 #846a29;
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+  color: black;
+  border-radius: 15px;
+  box-shadow: 0 2px #999;
+  margin-bottom: 20px;
+}

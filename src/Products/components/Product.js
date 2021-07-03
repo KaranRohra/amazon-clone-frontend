@@ -3,12 +3,12 @@ import 'Styles/Product.css';
 import StarIcon from '@material-ui/icons/Star';
 import { useCookies } from "react-cookie";
 import {addToCart} from 'Cart/helper/AddToCart';
-import { useHistory,Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 
 function Product({ id, title, image, price, rating}) {
 
-    const [cookies, setCookies, removeCookies] = useCookies("");
+    const [cookies] = useCookies("");
     const history = useHistory();
     const productDetails =(product_id)=>{
         history.push("/detail/"+product_id);
@@ -36,7 +36,7 @@ function Product({ id, title, image, price, rating}) {
         
           <img className="product__img" src={image} onClick={(e)=>{productDetails(id)}} alt="" />
         
-        <button onClick={() => addToCart(cookies, id, history)}>
+        <button className = "product__btn" onClick={() => addToCart(cookies, id, history)}>
           Add to Basket
         </button>
       </div>

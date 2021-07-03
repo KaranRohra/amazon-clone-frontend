@@ -1,7 +1,6 @@
 import React from "react";
 import "Styles/CheckoutProduct.css";
 import StarIcon from "@material-ui/icons/Star";
-import { getProductDetailsById } from "Products/helper/getProductDetails";
 import { useHistory } from "react-router-dom";
 
 function DisplayProducts({ id, name, image, price }) {

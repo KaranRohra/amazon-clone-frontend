@@ -6,7 +6,7 @@ import {useCookies} from "react-cookie";
 import baseURL from "backendApi";
 import {useHistory} from "react-router-dom"
 
-function CheckoutProduct({price,name,image,id,setRemove}) {
+function CheckoutProduct({price,name,image,id,setRemove, present}) {
   const[cookies] = useCookies("");
   const  history = useHistory();
    const productDetails =(product_id)=>{
@@ -27,7 +27,7 @@ function CheckoutProduct({price,name,image,id,setRemove}) {
               <StarIcon />
             </p>
           </div>
-          <button onClick={(e)=>{deleteFromCart(e,cookies,id,setRemove)}}>Remove from Basket</button>
+          {present && <button onClick={(e)=>{deleteFromCart(e,cookies,id,setRemove)}}>Remove from Basket</button>}
         </div>
       </div>
     );

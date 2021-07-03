@@ -8,14 +8,24 @@ import ProductsBySearch from "Products/components/ProductsBySearch";
 import Details from "Products/components/Details";
 import Card from "Products/components/OutlinedCard";
 import Address from "Cart/components/Address";
+import Payment from "Cart/components/Payment";
+import ConfirmOrder from "Orders/components/ConfirmOrder";
 
 function App() {
   return (
     <Router>
       <div className="App">
         <Switch>
-          <Route exact path ="/add">
-              <Address/>
+          <Route path="/pay/">
+            <Header />
+            <Payment />
+          </Route>
+          <Route exact path="/confirm">
+            <ConfirmOrder />
+          </Route>
+
+          <Route exact path="/add">
+            <Address />
           </Route>
           <Route path="/search2/">
             <Header />
@@ -26,7 +36,7 @@ function App() {
             <ProductsBySearch />
           </Route>
           <Route path="/card/">
-            <Card/>
+            <Card />
           </Route>
           <Route path="/detail/">
             <Header />
