@@ -1,0 +1,50 @@
+body {
+  font-family: sans-serif;
+  
+}
+.amazon {
+  position: relative;
+  top: 0;
+  left: 0;
+}
+.header__address {
+  width: 100px;
+  height: 50px;
+}
+.delivery {
+  filter: opacity(50%);
+}
+.pickup {
+  display: inline-block;
+}
+.pickp {
+  position: relative;
+  bottom: 25px;
+  display: inline-block;
+}
+a {
+  text-decoration: none;
+}
+.mytext {
+  width: 500px;
+  height: 30px;
+}
+
+.mytext:hover {
+  border: 2px solid blueviolet;
+}
+.yellow {
+  background-color: orange;
+}
+label {
+  filter: opacity(80%);
+}
+.container {
+  margin-left: 100px;
+}
+.mt {
+  margin-top: 12px;
+}
+.mb {
+  margin-bottom: 100px;
+}

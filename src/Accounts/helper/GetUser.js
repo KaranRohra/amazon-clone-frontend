@@ -2,7 +2,7 @@ import apiUrls from "ApiUrls";
 import axios from "axios";
 
 
-export function getUser(cookies,setEmail){
+export function getUser(cookies,setEmail,setUid){
     axios({
         method: "GET",
         url: apiUrls.accounts["get-user"],
@@ -10,8 +10,15 @@ export function getUser(cookies,setEmail){
           Authorization: `${cookies.token}`,
         },
       }).then((response) => {
-        setEmail(response.data.email);
+        if(setEmail!=null){
+          setEmail(response.data.email);
+        }
+        else if(setUid !=null){
+          setUid(response.data.id);
+        }
+        
       })
       .catch((err) => {
+        console.log(err);
       })
 }

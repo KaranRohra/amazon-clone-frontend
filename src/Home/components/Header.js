@@ -6,6 +6,7 @@ import { useState, useEffect } from "react";
 import { useCookies } from "react-cookie";
 import { handleLogout } from "Accounts/helper/LogoutAPI";
 import { getUser } from "Accounts/helper/GetUser";
+import baseURL from "backendApi";
 
 function Header() {
   const [email, setEmail] = useState(null);
@@ -15,19 +16,12 @@ function Header() {
   const history = useHistory();
 
   useEffect(() => {
-    getUser(cookies, setEmail);
-  }, []);
+    getUser(cookies, setEmail, null);
+  }, [baseURL]);
 
-
-  function handleSearch(){
-      history.push("/search/"+text+"/"+"1/");
+  function handleSearch() {
+    history.push("/search/" + text + "/" + "1/");
   }
-  
-  useEffect(() => {
-    getUser(cookies, setEmail);
-  }, []);
-
-
 
   return (
     <div className="header">
@@ -39,8 +33,20 @@ function Header() {
         />
       </Link>
       <div className="header__search">
-        <input className="header__searchInput" type="text" value={text} onChange={(e) => {setText(e.target.value)}}/>
-        <SearchIcon onClick={()=>{handleSearch()}} className="header__searchIcon" />
+        <input
+          className="header__searchInput"
+          type="text"
+          value={text}
+          onChange={(e) => {
+            setText(e.target.value);
+          }}
+        />
+        <SearchIcon
+          onClick={() => {
+            handleSearch();
+          }}
+          className="header__searchIcon"
+        />
       </div>
       <div className="header__nav">
         <Link to={!email && "/login"}>
@@ -59,10 +65,12 @@ function Header() {
           </div>
         </Link>
 
-        <div className="header__option">
-          <span className="header__optionLineOne">Returns</span>
-          <span className="header__optionLineTwo">& orders</span>
-        </div>
+        <Link to="/yourOrders">
+          <div className="header__option">
+            <span className="header__optionLineOne">Your</span>
+            <span className="header__optionLineTwo">orders</span>
+          </div>
+        </Link>
 
         <Link to="/checkout">
           <div className="header__optionBasket">

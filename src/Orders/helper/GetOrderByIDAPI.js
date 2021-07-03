@@ -1,10 +1,10 @@
-import apiUrls from "ApiUrls";
 import axios from "axios";
+import apiUrls from "ApiUrls";
 
-export function getAllProductsOnCheckoutPage(cookies, setData) {
+export default function getOrderByID(id, cookies, setData) {
   axios({
     method: "GET",
-    url: apiUrls.cart["get-products"],
+    url: apiUrls.orders["get-order-by-id"] + id + "/",
     headers: {
       Authorization: cookies.token,
     },

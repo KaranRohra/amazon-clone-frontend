@@ -1,16 +1,16 @@
-import apiUrls from "ApiUrls";
 import axios from "axios";
+import apiUrls from "ApiUrls";
 
-export function getAllProductsOnCheckoutPage(cookies, setData) {
+export default function getAllAddress(cookies, setAllAddress) {
   axios({
     method: "GET",
-    url: apiUrls.cart["get-products"],
+    url: apiUrls.accounts["get-all-address"],
     headers: {
       Authorization: cookies.token,
     },
   })
     .then((response) => {
-      setData(response.data);
+      setAllAddress(response.data);
     })
     .catch((err) => {});
 }

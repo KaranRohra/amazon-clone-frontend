@@ -7,13 +7,36 @@ import Checkout from "Cart/components/Checkout";
 import ProductsBySearch from "Products/components/ProductsBySearch";
 import Details from "Products/components/Details";
 import Card from "Products/components/OutlinedCard";
-
+import Address from "Cart/components/Address";
+import Payment from "Cart/components/Payment";
+import ConfirmOrder from "Orders/components/ConfirmOrder";
+import Orders from "Orders/components/Orders";
+import OrderDetails from "Orders/components/OrderDetails";
 
 function App() {
   return (
     <Router>
       <div className="App">
         <Switch>
+          <Route path="/ordersdetails">
+            <Header />
+            <OrderDetails />
+          </Route>
+          <Route path="/yourOrders">
+            <Header />
+            <Orders />
+          </Route>
+          <Route path="/pay/">
+            <Header />
+            <Payment />
+          </Route>
+          <Route exact path="/confirm">
+            <ConfirmOrder />
+          </Route>
+          <Route exact path="/add">
+            <Header />
+            <Address />
+          </Route>
           <Route path="/search2/">
             <Header />
             <ProductsBySearch />
@@ -23,7 +46,7 @@ function App() {
             <ProductsBySearch />
           </Route>
           <Route path="/card/">
-            <Card/>
+            <Card />
           </Route>
           <Route path="/detail/">
             <Header />

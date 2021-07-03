@@ -1,0 +1,42 @@
+.order__body
+{
+    background-color:#E9F9F9
+}
+
+.order__div
+{
+    height:500px;
+    width:50%;
+    background-color: white;
+    position:relative;
+    left: 400px;
+    top:110px;   
+}
+.order__img
+{
+  padding-top:20px;
+  padding-left:320px;  
+}
+.order__h
+{
+    text-align: center;
+}
+.order__p
+{
+    text-align: center;
+    opacity:0.5;
+    font-size: 22px;
+}
+
+.order__button
+{
+    border-radius: 50px;
+    height: 50px;
+    width:250px;
+    border:2px solid #007D91;
+    color: #007D91;
+    position: relative;
+    left:250px;
+    top:40px;
+}
+

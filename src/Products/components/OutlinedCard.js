@@ -45,11 +45,10 @@ const useStyles = makeStyles({
 });
 
 export default function OutlinedCard({ details }) {
-  const [cookies, setCookies] = useCookies("");
+  const [cookies] = useCookies("");
   const history = useHistory();
   const classes = useStyles();
 
-  const bull = <span className={classes.bullet}>•</span>;
   var myObject;
   if (details) {
     myObject = details.description;
