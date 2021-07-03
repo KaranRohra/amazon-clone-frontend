@@ -4,21 +4,22 @@ import StarIcon from "@material-ui/icons/Star";
 import { useHistory } from "react-router-dom";
 
 function DisplayProducts({ id, name, image, price }) {
-  console.log(id + name);
-
   const history = useHistory();
 
-  const productDetails =(product_id)=>{
-    history.push("/detail/"+product_id);
-  }
+  const productDetails = (product_id) => {
+    history.push("/detail/" + product_id);
+  };
   return (
-
-    
-
-    
     <div className="jcbhj">
-        <div className="checkoutProduct">
-        <img className="checkoutProduct__image" onClick={()=>{productDetails(id)}} src={image} alt="" />
+      <div className="checkoutProduct">
+        <img
+          className="checkoutProduct__image"
+          onClick={() => {
+            productDetails(id);
+          }}
+          src={image}
+          alt=""
+        />
         <div className="checkoutProduct__info">
           <p className="checkoutProduct__title">{name}</p>
           <p className="checkoutProduct__price">
@@ -34,7 +35,6 @@ function DisplayProducts({ id, name, image, price }) {
         </div>
       </div>
     </div>
-    
   );
 }
 

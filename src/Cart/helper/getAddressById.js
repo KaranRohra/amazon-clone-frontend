@@ -1,7 +1,7 @@
 import axios from "axios";
 import apiUrls from "ApiUrls";
 
-export default function getAddressById( cookies, id, setaddressbyId) {
+export default function getAddressById(cookies, id, setaddressbyId) {
   axios({
     method: "GET",
     url: apiUrls.accounts["get-address-by-id"] + id,
@@ -12,7 +12,5 @@ export default function getAddressById( cookies, id, setaddressbyId) {
     .then((response) => {
       setaddressbyId(response.data);
     })
-    .catch((err) => {
-      console.log(err);
-    });
+    .catch((err) => {});
 }

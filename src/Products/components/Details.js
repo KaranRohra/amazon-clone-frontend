@@ -44,7 +44,6 @@ const Details = () => {
   if (!Array.isArray(data.images) || data.images.length <= 0) {
     return null;
   }
-  
 
   return (
     <div className="details">

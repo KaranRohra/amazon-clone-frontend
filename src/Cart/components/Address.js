@@ -28,9 +28,7 @@ function Address() {
   const [deleteaddress, setDeleteaddress] = useState([]);
   function usethisAddress(e) {
     const addressLine = addressLine1 + " " + addressLine2;
-    if (userId) {
-      console.log(userId);
-    }
+
     const data = {
       user: userId,
       country: country,
@@ -40,14 +38,12 @@ function Address() {
       pincode: pinCode,
       city: city,
       phone_number_1: mobileNo,
+      name: fullName,
     };
-    console.log(userId);
     saveAddress(e, cookies, data, history);
    
   }
-  const changeHandler = (value) => {
-    setCountry(value);
-  };
+  
   function selectCountry(val) {
     setCountry(val);
   }
@@ -65,15 +61,6 @@ function Address() {
   return (
     <div className="container">
       <div className="header__address">
-        <Link to="/">
-          <img
-            src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/1024px-Amazon_logo.svg.png"
-            class="amazon"
-            alt="amazon.in"
-            width="100"
-            height="50"
-          />
-        </Link>
       </div>
 
       <h2 className="delivery">Select a delivery address</h2>

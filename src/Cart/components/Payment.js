@@ -1,51 +1,46 @@
 import React from "react";
 import "../../Styles/Pay.css";
-import{ useEffect, useState} from "react";
-import {useCookies} from "react-cookie";
+import { useEffect, useState } from "react";
+import { useCookies } from "react-cookie";
 import getAddressById from "Cart/helper/getAddressById";
 import { getAllProducts } from "Home/helper/ProductAPI";
 import { getAllProductsOnCheckoutPage } from "Cart/helper/GetProductAPI";
 import CheckoutProduct from "Cart/components/CheckoutProduct";
-import {useHistory} from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { placeOrder } from "Orders/helper/PlaceOrderAPI";
 
-
-let Id="";
+let Id = "";
 function Payment() {
-  const [addressById,setaddressById] = useState("");
-  const [cookies,setCookies] = useCookies("");
-  const [data,setData] = useState("");
-  const[remove, setRemove] = useState("");
+  const [addressById, setaddressById] = useState("");
+  const [cookies, setCookies] = useCookies("");
+  const [data, setData] = useState("");
+  const [remove, setRemove] = useState("");
   const history = useHistory();
- 
 
-  function getId(url){
-      for(let i=url.length-1;i>=0;i--){
-          if(url.charAt(i) == "/"){
-            for(let j=i+1;j<=url.length-1;j++){
-                Id += url.charAt(j);
-            }
-            break;
-          }
-        
+  function getId(url) {
+    for (let i = url.length - 1; i >= 0; i--) {
+      if (url.charAt(i) == "/") {
+        for (let j = i + 1; j <= url.length - 1; j++) {
+          Id += url.charAt(j);
+        }
+        break;
       }
-      return Id;
+    }
+    return Id;
   }
   useEffect(() => {
     let url = window.location.href;
     let id = getId(url);
-  
-    getAddressById( cookies, id, setaddressById);
-    Id="";
-    getAllProductsOnCheckoutPage(cookies,setData);
 
-  },[])
+    getAddressById(cookies, id, setaddressById);
+    Id = "";
+    getAllProductsOnCheckoutPage(cookies, setData);
+  }, []);
 
-  
   return (
     <div className="pro">
+      <h1>Review your Order</h1>
       <div className="pay">
-        <h1>Review your Order</h1>
         <table>
           <tbody>
             <tr>
@@ -59,7 +54,6 @@ function Payment() {
                 <br />
                 {addressById && addressById.city}
                 {addressById && " - " + addressById.pincode}
-              
               </td>
             </tr>
             <tr>
@@ -90,21 +84,20 @@ function Payment() {
                 id={item.id}
                 setRemove={setRemove}
                 present={false}
+                bsURL={true}
               />
             ))}
         </div>
       </div>
       <div>
-        
-          <button
-            className="confirm_order_btn"
-            onClick={(e) => {
-              addressById && placeOrder(e, cookies, addressById.id, history);
-            }}
-          >
-            Confirm Order
-          </button>
-        
+        <button
+          className="confirm_order_btn"
+          onClick={(e) => {
+            addressById && placeOrder(e, cookies, addressById.id, history);
+          }}
+        >
+          Confirm Order
+        </button>
       </div>
     </div>
   );

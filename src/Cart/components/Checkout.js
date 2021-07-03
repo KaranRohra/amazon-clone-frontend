@@ -36,6 +36,7 @@ function Checkout() {
                 id={item.id}
                 setRemove={setRemove}
                 present = {true}
+                bsURL = {true}
               />
             ))}
         </div>

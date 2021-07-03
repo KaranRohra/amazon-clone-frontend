@@ -10,12 +10,22 @@ import Card from "Products/components/OutlinedCard";
 import Address from "Cart/components/Address";
 import Payment from "Cart/components/Payment";
 import ConfirmOrder from "Orders/components/ConfirmOrder";
+import Orders from "Orders/components/Orders";
+import OrderDetails from "Orders/components/OrderDetails";
 
 function App() {
   return (
     <Router>
       <div className="App">
         <Switch>
+          <Route path="/ordersdetails">
+            <Header />
+            <OrderDetails />
+          </Route>
+          <Route path="/yourOrders">
+            <Header />
+            <Orders />
+          </Route>
           <Route path="/pay/">
             <Header />
             <Payment />
@@ -23,8 +33,8 @@ function App() {
           <Route exact path="/confirm">
             <ConfirmOrder />
           </Route>
-
           <Route exact path="/add">
+            <Header />
             <Address />
           </Route>
           <Route path="/search2/">
