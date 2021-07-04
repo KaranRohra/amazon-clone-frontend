@@ -1,2 +1,2 @@
-const baseURL = "http://localhost:5000";
+const baseURL = "https://amazon-clone-bakend-api.herokuapp.com";
 export default baseURL;
