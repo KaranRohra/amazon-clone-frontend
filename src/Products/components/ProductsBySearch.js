@@ -40,7 +40,7 @@ function ProductsBySearch() {
     }
     text = "";
     history.push("/search2/");
-  })
+  },[])
 
   useEffect(() => {
     if(data)
