@@ -30,17 +30,6 @@ function CheckoutProduct({
 
   return (
     <div className="checkoutProduct">
-      {bsURL && (
-        <img
-          onClick={(e) => {
-            productDetails(id);
-          }}
-          className="checkoutProduct__image"
-          src={baseURL + image}
-          alt=""
-        />
-      )}
-      {bsURL == false && (
         <img
           onClick={(e) => {
             productDetails(id);
@@ -49,7 +38,6 @@ function CheckoutProduct({
           src={image}
           alt=""
         />
-      )}
       <div className="checkoutProduct__info">
         <p className="checkoutProduct__title">{name}</p>
         <p className="checkoutProduct__price">
