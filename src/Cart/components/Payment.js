@@ -50,6 +50,11 @@ function Payment() {
             </tr>
             <tr>
               <td>
+              <strong>{addressById && addressById.name + ", "}</strong>
+              </td>
+            </tr>
+            <tr>
+              <td>
                 {addressById && addressById.address_line + ", "}
                 <br />
                 {addressById && addressById.city}

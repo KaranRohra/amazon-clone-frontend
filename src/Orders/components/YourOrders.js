@@ -26,7 +26,7 @@ function YourOrders({ info }) {
             <span className="head__optionLineOne">TOTAL</span>
             {info && (
               <span className="head__optionLineTwo">
-                {info["product"]["price"]}
+                {info["product"]["price"]+info["product"]["shipping_fee"]}
               </span>
             )}
           </div>
