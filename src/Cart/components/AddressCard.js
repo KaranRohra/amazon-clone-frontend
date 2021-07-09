@@ -67,6 +67,7 @@ function AddressCard({ allAddress, history, setdelete }) {
                 gutterBottom
               ></Typography>
               <Typography variant="h5" component="h2">
+                <strong>{allAddress[0] && allAddress[0].name}</strong><br />
                 {allAddress[0] && allAddress[0].address_line + ", "}
                 <br />
                 {allAddress[0] && allAddress[0].land_mark + ", "}
@@ -117,6 +118,7 @@ function AddressCard({ allAddress, history, setdelete }) {
                 gutterBottom
               ></Typography>
               <Typography variant="h5" component="h2">
+                <strong>{allAddress[1] && allAddress[1].name}</strong><br />
                 {allAddress[1] && allAddress[1].address_line + ", "}
                 <br />
                 {allAddress[1] && allAddress[1].land_mark + ", "}
@@ -166,6 +168,7 @@ function AddressCard({ allAddress, history, setdelete }) {
                 gutterBottom
               ></Typography>
               <Typography variant="h5" component="h2">
+                <strong>{allAddress[2] && allAddress[2].name}</strong><br />
                 {allAddress[2] && allAddress[2].address_line + ", "}
                 <br />
                 {allAddress[2] && allAddress[2].land_mark + ", "}

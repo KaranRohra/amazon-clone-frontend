@@ -44,6 +44,10 @@ function OrderTable() {
               </td>
             </tr>
             <tr>
+              {data && <td colSpan="2"><b>{data["address"]["name"]}</b></td>}
+            </tr>
+            <tr>
+              
               {data && <td>{data["address"]["address_line"]}</td>}
 
               <td>Cash on Delivery</td>
@@ -52,8 +56,8 @@ function OrderTable() {
             </tr>
             <tr>
               {data && <td colspan="2">{data["address"]["land_mark"]}</td>}
-              <td>Shipping</td>
-              {data && <td>{data["product"]["shipping_fee"]}</td>}
+              <td>Shipping Charges:</td>
+              {data && <td>₹{data["product"]["shipping_fee"]}</td>}
             </tr>
             <tr>
               {data && (
@@ -66,12 +70,12 @@ function OrderTable() {
                 </td>
               )}
               <td>Total:</td>
-              {data && <td>₹{data["product"]["price"]}</td>}
+              {data && <td>₹{data["product"]["price"]+data["product"]["shipping_fee"]}</td>}
             </tr>
             <tr>
               {data && <td colspan="2">{data["address"]["country"]}</td>}
               <td>Grand Total:</td>
-              {data && <td>₹{data["product"]["price"]}</td>}
+              {data && <td>₹{data["product"]["price"] + data["product"]["shipping_fee"]}</td>}
             </tr>
           </tbody>
         </table>
