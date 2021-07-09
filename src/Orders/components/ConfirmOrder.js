@@ -1,5 +1,6 @@
 import React from "react";
 import "Styles/ConfirmOrder.css";
+import "App.css";
 import { useHistory } from "react-router";
 export default function ConfirmOrder() {
   const history = useHistory();

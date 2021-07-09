@@ -12,12 +12,17 @@ import Payment from "Cart/components/Payment";
 import ConfirmOrder from "Orders/components/ConfirmOrder";
 import Orders from "Orders/components/Orders";
 import OrderDetails from "Orders/components/OrderDetails";
+import AboutUs from "AboutUs";
 
 function App() {
   return (
     <Router>
       <div className="App">
         <Switch>
+          <Route path="/aboutus">
+            <Header />
+            <AboutUs />
+          </Route>
           <Route path="/ordersdetails">
             <Header />
             <OrderDetails />
