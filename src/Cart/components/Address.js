@@ -21,7 +21,6 @@ function Address() {
   const [landMark, setLandMark] = useState("");
   const [state, setState] = useState("");
   const [city, setCity] = useState("");
-  const [userId, setUserId] = useState("");
   const [cookies, setCookies, removeCookies] = useCookies("");
   const [allAddresses, setAllAddress] = useState();
   const history = useHistory();
@@ -30,7 +29,6 @@ function Address() {
     const addressLine = addressLine1 + " " + addressLine2;
 
     const data = {
-      user: userId,
       country: country,
       state: state,
       land_mark: landMark,
@@ -52,9 +50,6 @@ function Address() {
     setState(val);
   }
 
-  useEffect(() => {
-    getUser(cookies, null, setUserId);
-  });
   useEffect(() => {
     getAllAddress(cookies, setAllAddress);
   }, [deleteaddress]);

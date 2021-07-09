@@ -22,7 +22,7 @@ function App() {
             <Header />
             <OrderDetails />
           </Route>
-          <Route path="/yourOrders">
+          <Route path="/orders">
             <Header />
             <Orders />
           </Route>

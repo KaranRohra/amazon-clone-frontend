@@ -1,4 +1,5 @@
-const baseURL = "https://amazon-clone-bakend-api.herokuapp.com/";
+// const baseURL = "https://amazon-clone-bakend-api.herokuapp.com/";
+const baseURL = "http://localhost:5000/";
 const apiUrls = {
   accounts: {
     login: baseURL + "accounts/auth/", // accounts/auth/
@@ -21,6 +22,7 @@ const apiUrls = {
     "get-all-produts": baseURL + "products/",
     products: baseURL + "products/", // products/1/
     search: baseURL + "products/page-number/", //search=""
+    product_count: baseURL+"products/count/?search=" // /?search="mo"
   },
   orders: {
     "place-order": baseURL + "orders/",

@@ -3,6 +3,9 @@ import {getSearchedProducts} from 'Home/helper/SearchAPI';
 import { useHistory } from "react-router-dom";
 import DisplayProducts from "Products/components/DisplayProducts";
 import "Styles/CheckoutProduct.css";
+import ReactPaginate from "react-paginate";
+import "Styles/Pagination.css"
+import getProductCount from "Products/helper/ProductCountAPI";
 
 
 var text = "";
@@ -11,6 +14,8 @@ function ProductsBySearch() {
 
   const [data, setData] = useState(Data);
   const [searchedText,setSearchedText] = useState();
+  const [total,setTotal] = useState(0);
+  const productsPerPage = 5;
 
   const history = useHistory();
 
@@ -29,6 +34,7 @@ function ProductsBySearch() {
   }
   useEffect(() => {
     var url = window.location.href;
+    getProductCount(getText(url),setTotal);
     if (url !== "http://localhost:3000/search2/") {
       getSearchedProducts(
         getText(url),
@@ -48,9 +54,12 @@ function ProductsBySearch() {
   });
 
 
-  function handlePageNumber(page_no){
-    getSearchedProducts(searchedText,setData,history,page_no);
+  const handlePageNumber = ({selected}) => {
+    console.log(selected+1);
+    getSearchedProducts(searchedText,setData,history,selected+1);
   }
+
+  const pgCount = Math.ceil(total/productsPerPage);
   
   return (
     <div>
@@ -64,9 +73,21 @@ function ProductsBySearch() {
           />
         ))}
         <div class="page__number">
+
+        <ReactPaginate 
+        previousLabel={"Prev"}
+        nextLabel={"Next"}
+        pageCount={pgCount}
+        onPageChange={handlePageNumber}
+        containerClassName={"paginationBttns"}
+        previousLinkClassName={"previousBttn"}
+        nextLinkClassName={"nextBttn"}
+        disabledClassName={"paginationDisabled"}
+        activeClassName={"paginationActive"}
+        />
         
-        {data && <button className="pg" onClick={()=>{handlePageNumber(1)}}>1</button>}
-        {data && <button className="pg" onClick={()=>{handlePageNumber(2)}}>2</button>}
+        {/* {data && <button className="pg" onClick={()=>{handlePageNumber(1)}}>1</button>}
+        {data && <button className="pg" onClick={()=>{handlePageNumber(2)}}>2</button>} */}
         
       </div>
     </div>

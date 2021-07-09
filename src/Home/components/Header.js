@@ -17,6 +17,9 @@ function Header() {
 
   useEffect(() => {
     getUser(cookies, setEmail, null);
+    if(!cookies.token){
+      history.push("/");
+    }
   }, [baseURL]);
 
   function handleSearch() {
@@ -65,10 +68,10 @@ function Header() {
           </div>
         </Link>
 
-        <Link to="/yourOrders">
+        <Link to="/orders">
           <div className="header__option">
-            <span className="header__optionLineOne">Your</span>
-            <span className="header__optionLineTwo">orders</span>
+            { email && <span className="header__optionLineOne">Your</span>}
+            { email && <span className="header__optionLineTwo">orders</span>}
           </div>
         </Link>
 
