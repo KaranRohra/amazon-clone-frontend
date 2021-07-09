@@ -26,6 +26,12 @@ function Header() {
     history.push("/search/" + text + "/" + "1/");
   }
 
+  const handleKeyPress = (event) => {
+    if(event.key === 'Enter'){
+      handleSearch();
+    }
+  }
+
   return (
     <div className="header">
       <Link to="/">
@@ -43,6 +49,7 @@ function Header() {
           onChange={(e) => {
             setText(e.target.value);
           }}
+          onKeyPress={handleKeyPress}
         />
         <SearchIcon
           onClick={() => {
