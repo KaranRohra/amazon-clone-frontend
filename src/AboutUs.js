@@ -20,10 +20,15 @@ const useStyles = makeStyles({
     marginRight: "50px",
     marginTop: "100px",
     marginBottom: "100px",
+    background:"#232F3E",
+    color:"white",
   },
   media: {
     height: 500,
   },
+  button:{
+    color:"white",
+  }
 });
 
 export default function AboutUs() {
@@ -35,19 +40,26 @@ export default function AboutUs() {
       <div>
         <Card className={classes.root}>
           <CardActionArea>
-            <CardMedia className={classes.media} image="../../images/a.jpg" />
+            <CardMedia
+              className={classes.media}
+              image="../../images/anisha.jpg"
+            />
             <CardContent>
               <Typography gutterBottom variant="h5" component="h2">
                 Anisha Dhameja
               </Typography>
-              <Typography variant="body2" color="textSecondary" component="p">
+              <Typography variant="body2" color="white" component="p">
                 Frontend Developer
               </Typography>
-              <Typography variant="body2" color="textSecondary" component="p">
-                Work of Karan Rohra is to maintain whole backend, he had made
-                api for frontend using django, all api's are tested using
-                Postman and Unitest.
+              <Typography variant="body2" color="white" component="p">
+                Responsibilities: Presenting dynamic data using API through
+                ReactJs. Building frontend using HTML, CSS, ReactJs
               </Typography>
+              <Typography
+                variant="body2"
+                color="white"
+                component="p"
+              ></Typography>
             </CardContent>
           </CardActionArea>
           <CardActions>
@@ -60,6 +72,7 @@ export default function AboutUs() {
                     "_blank"
                   );
                 }}
+                className={classes.button}
               />
             </Button>
             <Button size="small" color="primary">
@@ -71,6 +84,7 @@ export default function AboutUs() {
                     "_blank"
                   );
                 }}
+                className={classes.button}
               />
             </Button>
           </CardActions>
@@ -87,13 +101,13 @@ export default function AboutUs() {
               <Typography gutterBottom variant="h5" component="h2">
                 Karan Rohra
               </Typography>
-              <Typography variant="body2" color="textSecondary" component="p">
+              <Typography variant="body2" color="white" component="p">
                 Backend Developer
               </Typography>
-              <Typography variant="body2" color="textSecondary" component="p">
-                Work of Karan Rohra is to maintain whole backend, he had made
-                api for frontend using <b>Django</b>, all api's are tested using{" "}
-                <b>Postman</b> and <b>Unitest</b>.
+              <Typography variant="body2" color="white" component="p">
+                Responsibilities: Maintained whole backend, created API for
+                frontend using Django. APIS are tested using Postman and
+                Unittest.
               </Typography>
             </CardContent>
           </CardActionArea>
@@ -107,6 +121,7 @@ export default function AboutUs() {
                     "_blank"
                   );
                 }}
+                className={classes.button}
               />
             </Button>
             <Button size="small" color="primary">
@@ -118,6 +133,7 @@ export default function AboutUs() {
                     "_blank"
                   );
                 }}
+                className={classes.button}
               />
             </Button>
           </CardActions>
@@ -134,14 +150,12 @@ export default function AboutUs() {
               <Typography gutterBottom variant="h5" component="h2">
                 Khushboo Bajaj
               </Typography>
-              <Typography variant="body2" color="textSecondary" component="p">
+              <Typography variant="body2" color="white" component="p">
                 Frontend Developer
               </Typography>
-              <Typography variant="body2" color="txtSecondary" component="p">
-                Responsibilities:Presenting dynamic data using{" "}
-                <b>RESTFUL API</b>
-                through<b>ReactJs</b>. Building frontend using <b>HTML</b>
-                <b>CSS</b>, <b>ReactJs</b>
+              <Typography variant="body2" color="white" component="p">
+                Responsibilities: Presenting dynamic data using API through
+                ReactJs. Building frontend using HTML, CSS, ReactJs
               </Typography>
             </CardContent>
           </CardActionArea>
@@ -155,6 +169,7 @@ export default function AboutUs() {
                     "_blank"
                   );
                 }}
+                className={classes.button}
               />
             </Button>
             <Button size="small" color="primary">
@@ -166,6 +181,7 @@ export default function AboutUs() {
                     "_blank"
                   );
                 }}
+                className={classes.button}
               />
             </Button>
           </CardActions>

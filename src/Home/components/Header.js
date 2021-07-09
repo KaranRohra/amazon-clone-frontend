@@ -71,16 +71,15 @@ function Header() {
             <span className="header__optionLineTwo">orders</span>
           </div>
         </Link>
+        <Link to="/checkout">
+          <div className="header__optionBasket">
+            {email ? <ShoppingBasketIcon /> : ""}
+          </div>
+        </Link>
         <Link to="/aboutus">
           <div className="header__option">
             <span className="header__optionLineOne">About </span>
             <span className="header__optionLineTwo">Us</span>
-          </div>
-        </Link>
-
-        <Link to="/checkout">
-          <div className="header__optionBasket">
-            {email ? <ShoppingBasketIcon /> : ""}
           </div>
         </Link>
       </div>
