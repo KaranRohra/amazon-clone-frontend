@@ -1,5 +1,4 @@
-// const baseURL = "https://amazon-clone-bakend-api.herokuapp.com/";
-const baseURL = "http://localhost:5000/";
+const baseURL =`${process.env.REACT_APP_AMAZON_CLONE_BASE_API_URL}/`;
 const apiUrls = {
   accounts: {
     login: baseURL + "accounts/auth/", // accounts/auth/
