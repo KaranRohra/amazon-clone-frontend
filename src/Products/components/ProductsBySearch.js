@@ -16,6 +16,7 @@ function ProductsBySearch() {
   const productsPerPage = 5;
 
   const history = useHistory();
+  var url = window.location.href;
 
   function getText(url) {
     for (let i = url.length - 4; i >= 0; i--) {
@@ -43,7 +44,7 @@ function ProductsBySearch() {
     }
     text = "";
     history.push("/search2/");
-  });
+  },[url]);
 
   useEffect(() => {
     if (data) window.localStorage.setItem("data", JSON.stringify(data));
