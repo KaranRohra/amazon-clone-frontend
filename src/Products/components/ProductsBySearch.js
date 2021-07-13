@@ -16,6 +16,7 @@ function ProductsBySearch() {
   const productsPerPage = 5;
 
   const history = useHistory();
+  var url = window.location.href;
 
   function getText(url) {
     for (let i = url.length - 4; i >= 0; i--) {
@@ -30,7 +31,7 @@ function ProductsBySearch() {
   }
   useEffect(() => {
     var url = window.location.href;
-    if (url !== "http://localhost:3000/search2/") {
+    if (!url.endsWith("search2/")) {
       getProductCount(getText(url),setTotal);
       text="";
       getSearchedProducts(
@@ -43,7 +44,7 @@ function ProductsBySearch() {
     }
     text = "";
     history.push("/search2/");
-  },[]);
+  },[url]);
 
   useEffect(() => {
     if (data) window.localStorage.setItem("data", JSON.stringify(data));
